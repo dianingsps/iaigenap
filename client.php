@@ -2,8 +2,12 @@
     $curl = curl_init();
     curl_setopt_array ($curl, [
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://10.33.34.121/read.php',
-		CURLOPT_POST => 1,
+        CURLOPT_URL => 'http://10.33.34.121/create_header.php',
+    CURLOPT_POST => 1,
+    CURLOPT_POSTFIELDS => [
+      'key'=> 'ql3MtWE2DBwZWWuaz0xw3fG82GiDErjusDa1Ye4mrlwZ25tx5K'
+    ]
+   
 		
 		
 		
@@ -17,8 +21,7 @@
 
 <form action ="http://10.33.34.121/create.php" method ="post">
 <input type ="text" placeholder="nama" name ="nama"> </input>
-<input type ="password" placeholder="password" name ="password"> </input>
-<input type ="text" placeholder="nim" name ="nim"> </input>
+<input type ="text" placeholder="id_user" name ="id_user"> </input>
 <button type ="submit" value ="submit" >SUBMIT </button>
 </form>
 <!doctype html>
@@ -40,7 +43,7 @@
 	  <thead>
 		<tr>
 		  <th scope="col">nama</th>
-		  <th scope="col">nim</th>
+		  <th scope="col">id_user</th>
       <th scope="col">aksi</th>
 		</tr>
 	  </thead>
@@ -51,7 +54,7 @@
 					<tr>
 					 
 					  <td>'.$r->nama.'</td>
-            <td>'.$r->nim.'</td>
+            <td>'.$r->id_user.'</td>
             <td> <a href =http://10.33.34.121/client_delete.php?nim='.$r->nim.'>hapus</a></td>
 					</tr>
 			  ';
